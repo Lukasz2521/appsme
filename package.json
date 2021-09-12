@@ -11,7 +11,14 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prepare": "husky install",
+    "lint": "eslint src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.2",
@@ -25,5 +32,10 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.1",
+    "husky": "^7.0.2",
+    "prettier": "^2.4.0"
   }
 }
