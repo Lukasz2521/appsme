@@ -1,28 +1,36 @@
-import * as React from "react"
+import * as React from "react";
+import styled from "styled-components";
+
 import RightArrow from '@assets/images/right-arrow.svg';
 
 const Button = (props: React.PropsWithChildren<ButtonProps>) => {
-    const primaryButton = {
-        display: 'flex',
-        alignItems: 'center',
-        borderRadius: '5px',
-        border: '1px solid #094AEB',
-        padding: '26px 42px 26px 42px',
-        backgroundColor: '#094AEB',
-        fontSize: '16px',
-        lineHeight: '19px',
-        color: '#fff'
-    };
+    const ButtonWithIcon = styled.button`
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        border: 1px solid #094AEB;
+        padding: 26px 42px 26px 42px;
+        background-color: #094AEB;
+        font-size: 16px;
+        line-height: 19px;
+        color: #fff;
+        transition: opacity 0.35s;
 
-    const primaryButtonText = {
-        marginRight: '15px'
-    }
+        &:hover {
+            opacity: .95;
+            cursor: pointer;
+        }
+    `
+
+    const ButtonText = styled.span`
+        margin-right: 15px;
+    `
 
     return (
-        <button style={primaryButton}>
-            <span style={primaryButtonText}>{props.children}</span>
+        <ButtonWithIcon>
+            <ButtonText>{props.children}</ButtonText>
             <RightArrow />
-        </button>
+        </ButtonWithIcon>
     );
 }
 
