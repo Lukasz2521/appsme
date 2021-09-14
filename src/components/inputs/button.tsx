@@ -1,44 +1,77 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import RightArrow from '@assets/images/right-arrow.svg';
 
 const Button = (props: React.PropsWithChildren<ButtonProps>) => {
-    const ButtonWithIcon = styled.button`
+    const BaseButton = styled.button`
         display: flex;
-        align-items: center;
         border-radius: 5px;
-        border: 1px solid #094AEB;
         padding: 26px 42px 26px 42px;
+    
+        &:hover {
+            cursor: pointer;
+        }
+    `;
+
+    const PrimaryButtonStyles = css`
+        border: 1px solid #094AEB;
         background-color: #094AEB;
-        font-size: 16px;
-        line-height: 19px;
         color: #fff;
         transition: opacity 0.35s;
 
         &:hover {
             opacity: .95;
-            cursor: pointer;
         }
-    `
+    `;
+
+    const OutlinedButtonStyles = css`
+        border: 2px solid #E5E5E5;
+        background-color: #fff;
+        color: #49494E;
+    `;
+
+    const ButtonWithIcon = styled(BaseButton)`
+        ${props.type === ButtonType.PRIMARY ? PrimaryButtonStyles : OutlinedButtonStyles}
+        align-items: center;
+        font-size: 16px;
+        line-height: 19px;
+    `;
 
     const ButtonText = styled.span`
         margin-right: 15px;
-    `
+    `;
+
+    const PrimaryRightArrow = css`
+        path {
+            stroke: #fff;
+        }
+    `;
+
+    const OutlinedRightArrow = css`
+        path {
+            stroke: #49494E;
+        }
+    `;
+
+    const RightArrowStyled = styled(RightArrow)`
+        ${props.type === ButtonType.PRIMARY ? PrimaryRightArrow : OutlinedRightArrow };
+    `;
 
     return (
         <ButtonWithIcon>
             <ButtonText>{props.children}</ButtonText>
-            <RightArrow />
+            <RightArrowStyled />
         </ButtonWithIcon>
     );
 }
 
-export enum ButtonType {
-    PRIMARY,
+enum ButtonType {
+    PRIMARY = 'primary',
+    OUTLINED = 'outlined'
 }
 
-export interface ButtonProps {
+interface ButtonProps {
     value: string;
     type: ButtonType;
 }

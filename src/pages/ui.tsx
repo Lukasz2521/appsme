@@ -4,7 +4,15 @@ import Button from "@components/inputs/button";
 const UI = () => {
     return (
         <div>
-            <Button>Dowiedz się więcej</Button>
+            <header>
+                <h2>Buttons</h2>
+            </header>
+            <div>
+                <Button type="primary">Dowiedz się więcej</Button>
+            </div>
+            <div>
+                <Button type="outlined">Porozmawiajmy o projekcie</Button>
+            </div>
         </div>
     );
 }
