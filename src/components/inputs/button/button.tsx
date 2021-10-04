@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 import RightArrow from '@assets/images/right-arrow.svg';
 
-const Button = (props: React.PropsWithChildren<ButtonProps>) => {
+export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
     const BaseButton = styled.button`
         display: flex;
         border-radius: 5px;
@@ -75,5 +75,3 @@ interface ButtonProps {
     value: string;
     type: ButtonType;
 }
-
-export default Button;

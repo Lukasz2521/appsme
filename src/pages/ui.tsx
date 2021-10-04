@@ -1,5 +1,6 @@
 import * as React from "react";
-import Button from "@components/inputs/button";
+
+import { Button } from "@components/inputs";
 
 const UI = () => {
     return (

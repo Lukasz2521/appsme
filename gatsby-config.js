@@ -20,6 +20,9 @@ module.exports = {
           include: /assets/
         }
       }
-    }
+    },
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
   ],
 };
