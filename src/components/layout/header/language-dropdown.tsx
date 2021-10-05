@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { StaticImage } from 'gatsby-plugin-image';
 

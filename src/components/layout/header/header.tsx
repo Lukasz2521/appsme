@@ -1,11 +1,23 @@
 import * as React from "react";
 import { Link } from 'gatsby';
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-import logo from "@assets/images/logo.png";
-import { LanguageDropdown } from "./language-dropdown";
+import { StaticImage } from 'gatsby-plugin-image';
+
+const Logo = () => {
+    return <StaticImage src="../../../assets/images/logo.png"
+                        alt="logo"
+                        width={150}
+                        height={32}/>;
+}
 
 export const Header = () => {
+    const Header = styled.header`
+        display: flex;
+        justify-content: space-between;
+        padding: 60px 90px;
+    `;
+
     const NavLink = styled(Link)`
         display: inline-flex;
         font-weight: bold;
@@ -41,15 +53,14 @@ export const Header = () => {
     `;
 
     return (
-        <header>
+        <Header>
+            <Logo />
             <nav>
-                <NavLink to="/">co robimy</NavLink>
-                <NavLink to="/">kim jesteśmy</NavLink>
-                <NavLink to="/">zrealizowane projekty</NavLink>
-                <NavLink to="/">kontakt</NavLink>
+                <NavLink to="/">Co robimy</NavLink>
+                <NavLink to="/">Kim jesteśmy</NavLink>
+                <NavLink to="/">Zrealizowane projekty</NavLink>
+                <NavLink to="/">Kontakt</NavLink>
             </nav>
-        
-            <LanguageDropdown languages={['pl', 'en', 'de']} />
-      </header>
+        </Header>
     );
 };
