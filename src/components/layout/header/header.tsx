@@ -7,14 +7,15 @@ import { StaticImage } from 'gatsby-plugin-image';
 const Logo = () => {
     return <StaticImage src="../../../assets/images/logo.png"
                         alt="logo"
-                        width={150}
-                        height={32}/>;
+                        width={156}
+                        height={34} />;
 }
 
 export const Header = () => {
     const Header = styled.header`
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 60px 90px;
     `;
 

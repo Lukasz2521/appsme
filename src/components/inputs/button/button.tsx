@@ -7,7 +7,7 @@ export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
     const BaseButton = styled.button`
         display: flex;
         border-radius: 5px;
-        padding: 26px 42px 26px 42px;
+        padding: 20px 28px;
     
         &:hover {
             cursor: pointer;
@@ -34,7 +34,7 @@ export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
     const ButtonWithIcon = styled(BaseButton)`
         ${props.type === ButtonType.PRIMARY ? PrimaryButtonStyles : OutlinedButtonStyles}
         align-items: center;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 19px;
     `;
 
