@@ -1,11 +1,26 @@
 import * as React from "react";
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
+import BackgroundImage from 'gatsby-background-image';
 
 import { Button } from "@components/inputs";
 
-
 export const Banner = () => {
+    const data = useStaticQuery(
+        graphql`
+          query {
+            desktop: file(relativePath: { eq: "decoration.jpg" }) {
+              childImageSharp {
+                fluid(quality: 90, maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        `
+    );
+
     const Headline = styled.h2`
         font-style: normal;
         font-weight: 800;

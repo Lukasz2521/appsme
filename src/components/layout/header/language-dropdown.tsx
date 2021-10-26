@@ -6,49 +6,49 @@ interface LanguageDropdownProps {
     languages: string[]
 }
 
+const DropdownContainer = styled.div`
+    position: relative;
+`;
+
+const LanguageButton = styled.button`
+    position: relative;
+`;
+
+const ChoosedLanguageImg = styled(StaticImage)`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(50%);
+    width: 10px;
+`;
+
+const LanguageList = styled.ul`
+    display: inline-flex;
+    flex-direction: column;
+    background: #F8F8FB;
+    border-radius: 5px;
+    padding: 10px 10px 15px;
+`;
+
+const LanguageItem = styled.li`
+    margin-bottom: 20px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+`;
+
+const Language = styled.span`
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: blue;
+`;
+
 export const LanguageDropdown = (props: LanguageDropdownProps) => {
     const [languages, setLanguages] = useState(props.languages);
     const [visibility, setVisibility] = useState(false);
-
-    const DropdownContainer = styled.div`
-        position: relative;
-    `;
-
-    const LanguageButton = styled.button`
-        position: relative;
-    `;
-
-    const ChoosedLanguageImg = styled(StaticImage)`
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: translateX(50%);
-        width: 10px;
-    `;
-
-    const LanguageList = styled.ul`
-        display: inline-flex;
-        flex-direction: column;
-        background: #F8F8FB;
-        border-radius: 5px;
-        padding: 10px 10px 15px;
-    `;
-
-    const LanguageItem = styled.li`
-        margin-bottom: 20px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    `;
-
-    const Language = styled.span`
-        display: inline-flex;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: blue;
-    `;
 
     const onLanguageClickHandler = (index: number) => {
         const choosedLang: string[] = languages.splice(index, index + 1);
