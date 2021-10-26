@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from "styled-components";
 
+import { Chip, Button, Paragraph } from "@components/inputs";
 import { SectionHeader } from './section-header';
-import { Paragraph, Chip } from '../../inputs';
 
 const WhatWeDoContainer = styled.section`
     margin-top: 120px;
@@ -36,7 +36,7 @@ export const WhatWeDo = () => (
         <div className="grid grid-rows-1 grid-cols-3">
             <div className="col-span-2 auto-rows-auto">
                 <DescriptionHeader>Co charakteryzuje naszą pracę?</DescriptionHeader>
-                <Paragraph className="mr-32">
+                <Paragraph className="mr-32 mb-12">
                     Działamy w metodyce agile, współpracujemy blisko z klientem, używamy najnowszych technologii, a poszczególne technologie dobieramy do problemu,
                     który będziemy rozwiązywać. Używamy najlepszych praktyk
                     programistycznych, a nasz kod jest przetestowany jednostkowo, e2e oraz
@@ -44,6 +44,7 @@ export const WhatWeDo = () => (
                     lub na dedykowanych serwerach aplikacyjnych w zależności od budżetu lub
                     potrzeb klienta.
                 </Paragraph>
+                <Button type="link">Dowiedz się więcej</Button>
             </div>
             <div>
                 <DescriptionHeader>Czym się zajmujemy?</DescriptionHeader>

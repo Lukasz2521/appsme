@@ -1,11 +1,14 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 
 import RightArrow from '@assets/images/right-arrow.svg';
+import RightArrowLong from '@assets/images/right-arrow-long.svg';
 
 enum ButtonType {
     PRIMARY = 'primary',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
+    LINK = 'link'
 }
 
 interface ButtonProps {
@@ -13,6 +16,17 @@ interface ButtonProps {
     type: ButtonType;
     className: string;
 }
+
+const ButtonLink = styled(Link)`
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 19px;
+    color: #094AEB;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
 
 const BaseButton = styled.button`
     display: flex;
@@ -57,6 +71,12 @@ const OutlinedRightArrow = css`
     }
 `;
 
+const RightArrowLongStyled = styled(RightArrowLong)`
+    display: inline-flex;
+    align-items: center;
+    margin-left: 15px;
+`;
+
 export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
     const ButtonWithIcon = styled(BaseButton)`
         ${props.type === ButtonType.PRIMARY ? PrimaryButtonStyles : OutlinedButtonStyles}
@@ -69,10 +89,19 @@ export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
         ${props.type === ButtonType.PRIMARY ? PrimaryRightArrow : OutlinedRightArrow };
     `;
 
-    return (
-        <ButtonWithIcon className={props.className}>
-            <ButtonText>{props.children}</ButtonText>
-            <RightArrowStyled />
-        </ButtonWithIcon>
-    );
+    if(props.type === ButtonType.LINK) {
+        return (
+            <ButtonLink>
+                {props.children}
+                <RightArrowLongStyled />
+            </ButtonLink>
+        );
+    } else {
+        return (
+            <ButtonWithIcon className={props.className}>
+                <ButtonText>{props.children}</ButtonText>
+                <RightArrowStyled />
+            </ButtonWithIcon>
+        );
+    }
 }
