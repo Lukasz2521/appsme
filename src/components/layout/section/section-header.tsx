@@ -4,8 +4,12 @@ import styled from "styled-components";
 interface HeaderSectionProps {
     headerText: string;
     subheaderText: string;
-    className: string;
+    className?: string;
 }
+
+const HeaderContainer = styled.div`
+    margin-bottom: 80px;
+`;
 
 const Header = styled.h2`
     font-weight: bold;
@@ -25,8 +29,8 @@ const SubHeader = styled.h3`
 
 export const SectionHeader = (props: HeaderSectionProps) =>
     (
-        <div className={props.className}>
+        <HeaderContainer className={props.className}>
             <Header>{ props.headerText }</Header>
             <SubHeader>{ props.subheaderText }</SubHeader>
-        </div>
+        </HeaderContainer>
     );

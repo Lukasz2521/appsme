@@ -2,19 +2,15 @@ import * as React from 'react';
 import styled from "styled-components";
 
 import { Chip, Button, Paragraph } from "@components/inputs";
-import { SectionHeader } from './section-header';
+import { SectionHeader } from "@components/layout";
 
 const WhatWeDoContainer = styled.section`
     margin-top: 120px;
 `;
 
-const StyledSectionHeader = styled(SectionHeader)`
-    margin-bottom: 80px;
-`;
-
 const DescriptionHeader = styled.h4`
     font-weight: bold;
-    font-size: 23px;
+    font-size: 25px;
     line-height: 35px;
     color: #2C2C2C;
     margin-bottom: 40px;
@@ -32,7 +28,7 @@ const ChipContainer = styled.div`
 
 export const WhatWeDo = () => (
     <WhatWeDoContainer>
-        <StyledSectionHeader headerText="co robimy" subheaderText="To, co potrafimy robić najlepiej"></StyledSectionHeader>
+        <SectionHeader headerText="co robimy" subheaderText="To, co potrafimy robić najlepiej"></SectionHeader>
         <div className="grid grid-rows-1 grid-cols-3">
             <div className="col-span-2 auto-rows-auto">
                 <DescriptionHeader>Co charakteryzuje naszą pracę?</DescriptionHeader>
