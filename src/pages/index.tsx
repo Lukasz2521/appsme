@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Header, Banner, WhatWeDo, WhoWeAre } from '@components/layout';
+import { Header, Banner, WhatWeDo, WhoWeAre, CompletedProjects } from '@components/layout';
 
 const IndexPage = () => (
   <div className="container">
@@ -8,6 +8,7 @@ const IndexPage = () => (
     <Banner />
     <WhatWeDo />
     <WhoWeAre />
+    <CompletedProjects />
   </div>
 );
 

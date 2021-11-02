@@ -2,15 +2,11 @@ import * as React from "react";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 
-import { SectionHeader } from "@components/layout";
+import { SectionHeader, SectionContainer } from "@components/layout";
 import { Paragraph, Button } from "@components/inputs";
 import HeartIcon from '@assets/images/heart.svg';
 import ShieldIcon from '@assets/images/shield.svg';
 import StarIcon from '@assets/images/star.svg';
-
-const WhoWeAreContainer = styled.section`
-    margin-top: 80px;
-`;
 
 const DescriptionHeader = styled.h4`
     font-weight: bold;
@@ -43,7 +39,7 @@ const IconChipText = styled.span`
 `;
 
 export const WhoWeAre = () => (
-    <WhoWeAreContainer>
+    <SectionContainer>
         <SectionHeader headerText="kim jesteśmy" subheaderText="Poznaj nas lepiej"></SectionHeader>
         <div className="grid grid-rows-1 grid-cols-3">
             <div>
@@ -82,5 +78,5 @@ export const WhoWeAre = () => (
                 <Button type="link">Dowiedz się o nas więcej</Button>
             </div>
         </div>
-    </WhoWeAreContainer>
+    </SectionContainer>
 );

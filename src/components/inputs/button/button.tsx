@@ -91,9 +91,9 @@ export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
 
     if(props.type === ButtonType.LINK) {
         return (
-            <ButtonLink>
+            <ButtonLink className={props.className}>
                 {props.children}
-                <RightArrowLongStyled />
+                <RightArrowLongStyled className={props.className} />
             </ButtonLink>
         );
     } else {

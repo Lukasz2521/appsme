@@ -4,6 +4,9 @@ import { Banner } from './header/banner';
 import { SectionHeader } from './section/section-header';
 import { WhatWeDo } from './section/what-we-do';
 import { WhoWeAre } from "./section/who-we-are";
+import { SectionContainer } from './section/section-container';
+import { CompletedProjects } from "./section/completed-projects";
+import { Project } from "./section/project";
 
 export {
     Header,
@@ -11,5 +14,8 @@ export {
     Banner,
     SectionHeader,
     WhatWeDo,
-    WhoWeAre
+    WhoWeAre,
+    SectionContainer,
+    CompletedProjects,
+    Project,
 };

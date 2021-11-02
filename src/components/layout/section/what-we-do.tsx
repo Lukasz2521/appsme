@@ -2,11 +2,7 @@ import * as React from 'react';
 import styled from "styled-components";
 
 import { Chip, Button, Paragraph } from "@components/inputs";
-import { SectionHeader } from "@components/layout";
-
-const WhatWeDoContainer = styled.section`
-    margin-top: 120px;
-`;
+import { SectionHeader, SectionContainer } from "@components/layout";
 
 const DescriptionHeader = styled.h4`
     font-weight: bold;
@@ -27,7 +23,7 @@ const ChipContainer = styled.div`
 `;
 
 export const WhatWeDo = () => (
-    <WhatWeDoContainer>
+    <SectionContainer>
         <SectionHeader headerText="co robimy" subheaderText="To, co potrafimy robić najlepiej"></SectionHeader>
         <div className="grid grid-rows-1 grid-cols-3">
             <div className="col-span-2 auto-rows-auto">
@@ -52,5 +48,5 @@ export const WhatWeDo = () => (
                 </ChipContainer>
             </div>
         </div>
-    </WhatWeDoContainer>
+    </SectionContainer>
 );
