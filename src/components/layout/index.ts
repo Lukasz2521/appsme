@@ -7,6 +7,7 @@ import { WhoWeAre } from "./section/who-we-are";
 import { SectionContainer } from './section/section-container';
 import { CompletedProjects } from "./section/completed-projects";
 import { Project } from "./section/project";
+import { Contact } from "./section/contact";
 
 export {
     Header,
@@ -18,4 +19,5 @@ export {
     SectionContainer,
     CompletedProjects,
     Project,
+    Contact,
 };
