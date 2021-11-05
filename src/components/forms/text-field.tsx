@@ -1,12 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-interface TextFieldProps {
-    label: string;
-    name: string;
-    type: string;
-}
-
 const InputContainer = styled.div`
     position: relative;
 `;
@@ -15,6 +9,18 @@ const BaseStyle = css`
     font-size: 15px;
     display: block;
     background: transparent;
+`;
+
+const BaseStyleInput = css`
+    ${BaseStyle}
+    padding: 15px 25px;
+    border: 1.5px solid #E0E3F3;
+    border-radius: 5px;
+    color: #B8C2D9;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    outline: none;
 `;
 
 const Label = styled.label`
@@ -36,58 +42,121 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-    ${BaseStyle}
-    padding: 15px 25px;
-    border: 1.5px solid #E0E3F3;
-    border-radius: 5px;
-    color: #B8C2D9;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    background-color: ${props => (props.selected ? 'red' : 'none')};
-    outline: none;
+    ${BaseStyleInput}
 `;
+
+const Textarea = styled.textarea`
+    ${BaseStyleInput}
+`;
+
+interface TextFieldProps {
+    label: string;
+    name: string;
+    type: string;
+    multiline: boolean;
+    className: string;
+    rows?: number;
+    cols?: number;
+}
+
+interface BaseTextFieldProps {
+    label: string;
+    name: string;
+    isActive: boolean;
+    fieldRef: React.MutableRefObject<HTMLInputElement>;
+    onChangeHandler: Function,
+    onFocusHandler: Function,
+    onBlurHandler: Function,
+    onLabelClickHandler: Function,
+    className: string;
+}
+
+interface InputProps extends BaseTextFieldProps {
+    type: string;
+}
+
+interface TextareaProps extends BaseTextFieldProps {
+    rows: number;
+    cols: number;
+}
+
+const InputField = (props: InputProps) => (
+    <InputContainer className={props.className}>
+        <Input  name={props.name}
+                type={props.type}
+                ref={props.fieldRef}
+                onChange={props.onChangeHandler}
+                onFocus={props.onFocusHandler}
+                onBlur={props.onBlurHandler}
+        />
+        <Label  active={ props.isActive }
+                onClick={props.onLabelClickHandler}>
+            {props.label}
+        </Label>
+    </InputContainer>
+);
+
+const TextareaField = (props: TextareaProps) => {
+    return (
+        <InputContainer className={props.className}>
+            <Textarea name={props.name} 
+                      rows={props.rows}
+                      cols={props.cols}
+                      ref={props.fieldRef}
+                      onChange={props.onChangeHandler}
+                      onFocus={props.onFocusHandler}
+                      onBlur={props.onBlurHandler}/>
+            <Label active={ props.isActive }
+                   onClick={props.onLabelClickHandler}>{props.label}</Label>
+        </InputContainer>
+    );
+};
 
 export const TextField = (props: TextFieldProps) => {
     const [value, setValue] = React.useState('');
     const [isActive, setActive] = React.useState(false);
-    const fieldRef = React.useRef(null);
+    const fieldRef: React.MutableRefObject<HTMLInputElement> = React.useRef<HTMLInputElement>(null);
 
-    return (
-        <InputContainer>
-            <Input {...props}
-                   ref={fieldRef}
-                   onChange={ 
-                       (e: React.FormEvent<HTMLInputElement>) => {
-                           const currentValue: string = e.currentTarget.value;
-                           setValue(currentValue);
-                       }
-                   }
-                   onFocus={
-                       () => {
-                           setActive(true);
-                       }
-                   }
-                   onBlur={
-                       (e: React.FormEvent<HTMLInputElement>) => {
-                           if(e.currentTarget.value.length === 0) {
-                               setActive(false);
-                           }
-                       }
-                   }
-            />
-            <Label active={ isActive }
-                   onClick={
-                       () => {
-                            fieldRef.current.focus();
+    const onChangeHandler = (e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value);
 
-                            if(value.length === 0) {
-                                setActive(true);
-                            }
-                       }
-                    }>
-                {props.label}
-            </Label>
-        </InputContainer>
-    );
+    const onFocusHandler = () => setActive(true);
+
+    const onBlurHandler = (e: React.FormEvent<HTMLInputElement>) => {
+        if(e.currentTarget.value.length === 0) {
+            setActive(false);
+        }
+    };
+
+    const onLabelClickHandler = () => {
+        fieldRef.current.focus();
+
+        if(value.length === 0) {
+            setActive(true);
+        }
+    };
+
+    if(props.multiline) {
+        return <TextareaField name={props.name}
+                              label={props.label}
+                              isActive={isActive}
+                              fieldRef={fieldRef}
+                              onChangeHandler={onChangeHandler}
+                              onFocusHandler={onFocusHandler}
+                              onBlurHandler={onBlurHandler}
+                              onLabelClickHandler={onLabelClickHandler}
+                              className={props.className}
+                              rows={props.rows}
+                              cols={props.cols} />;
+    }
+
+    return <InputField  name={props.name}
+                        label={props.label}
+                        type={props.type}
+                        isActive={isActive}
+                        fieldRef={fieldRef}
+                        onChangeHandler={onChangeHandler}
+                        onFocusHandler={onFocusHandler}
+                        onBlurHandler={onBlurHandler}
+                        onLabelClickHandler={onLabelClickHandler} 
+                        className={props.className} />;
 }
