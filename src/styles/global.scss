@@ -5,3 +5,12 @@
 body {
     font-family: "Sen";
 }
+
+body::-webkit-scrollbar {
+    width: .7em;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-color: #C5C5C5;
+}
