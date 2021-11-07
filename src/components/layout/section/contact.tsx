@@ -15,7 +15,7 @@ export const Contact = () => {
     const { value: surname, onChangeHandler: onChangeSurnameHandler, resetState: resetSurnameState } = useInput();
     const { value: email, onChangeHandler: onChangeEmailHandler, resetState: resetEmailState } = useInput();
     const { value: phone, onChangeHandler: onChangePhoneHandler, resetState: resetPhoneState } = useInput();
-    const { value: body, onChangeHandler: onChangeBodyHandler, resetState: resetBodyState }  = useInput();
+    const { value: body, onChangeHandler: onChangeBodyHandler, resetState: resetBodyState } = useInput();
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();

@@ -8,6 +8,7 @@ const CompletedProjectsContainer = styled.div`
     background: #F8F9FB;
     padding: 20px 15px;
     overflow: hidden;
+    justify-content: space-around;
 `;
 
 
