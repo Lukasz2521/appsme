@@ -7,20 +7,6 @@ import BackgroundImage from 'gatsby-background-image';
 import { Button } from "@components/inputs";
 
 export const Banner = () => {
-    const data = useStaticQuery(
-        graphql`
-          query {
-            desktop: file(relativePath: { eq: "decoration.jpg" }) {
-              childImageSharp {
-                fluid(quality: 90, maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        `
-    );
-
     const Headline = styled.h2`
         font-style: normal;
         font-weight: 800;
@@ -48,7 +34,7 @@ export const Banner = () => {
 
     return (
         <section className="grid grid-rows-1 grid-cols-3">
-            <div className="mt-32 col-span-2 auto-rows-auto">
+            <div className="mt-32 mr-12 col-span-2 auto-rows-auto">
                 <Headline>
                     Dostarczamy <HighlightedPhrase>dedykowane</HighlightedPhrase><br />
                     <HighlightedPhrase> oprogramowanie </HighlightedPhrase>

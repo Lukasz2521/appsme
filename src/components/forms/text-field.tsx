@@ -50,6 +50,8 @@ const Textarea = styled.textarea`
 `;
 
 interface TextFieldProps {
+    value: string;
+    onChangeHandler: Function,
     label: string;
     name: string;
     type: string;
@@ -60,6 +62,7 @@ interface TextFieldProps {
 }
 
 interface BaseTextFieldProps {
+    value: string
     label: string;
     name: string;
     isActive: boolean;
@@ -76,20 +79,21 @@ interface InputProps extends BaseTextFieldProps {
 }
 
 interface TextareaProps extends BaseTextFieldProps {
-    rows: number;
-    cols: number;
+    rows?: number;
+    cols?: number;
 }
 
 const InputField = (props: InputProps) => (
     <InputContainer className={props.className}>
-        <Input  name={props.name}
+        <Input  value={props.value}
+                name={props.name}
                 type={props.type}
                 ref={props.fieldRef}
                 onChange={props.onChangeHandler}
                 onFocus={props.onFocusHandler}
                 onBlur={props.onBlurHandler}
         />
-        <Label  active={ props.isActive }
+        <Label  active={props.isActive}
                 onClick={props.onLabelClickHandler}>
             {props.label}
         </Label>
@@ -99,25 +103,25 @@ const InputField = (props: InputProps) => (
 const TextareaField = (props: TextareaProps) => {
     return (
         <InputContainer className={props.className}>
-            <Textarea name={props.name} 
+            <Textarea value={props.value}
+                      name={props.name} 
                       rows={props.rows}
                       cols={props.cols}
                       ref={props.fieldRef}
                       onChange={props.onChangeHandler}
                       onFocus={props.onFocusHandler}
-                      onBlur={props.onBlurHandler}/>
+                      onBlur={props.onBlurHandler}>
+                {props.value}
+            </Textarea>
             <Label active={ props.isActive }
                    onClick={props.onLabelClickHandler}>{props.label}</Label>
         </InputContainer>
     );
 };
 
-export const TextField = (props: TextFieldProps) => {
-    const [value, setValue] = React.useState('');
+const TextField = (props: TextFieldProps) => {
     const [isActive, setActive] = React.useState(false);
     const fieldRef: React.MutableRefObject<HTMLInputElement> = React.useRef<HTMLInputElement>(null);
-
-    const onChangeHandler = (e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value);
 
     const onFocusHandler = () => setActive(true);
 
@@ -130,33 +134,38 @@ export const TextField = (props: TextFieldProps) => {
     const onLabelClickHandler = () => {
         fieldRef.current.focus();
 
-        if(value.length === 0) {
+        if(props.value.length === 0) {
             setActive(true);
         }
     };
 
     if(props.multiline) {
-        return <TextareaField name={props.name}
-                              label={props.label}
+        return <TextareaField {...props}
                               isActive={isActive}
                               fieldRef={fieldRef}
-                              onChangeHandler={onChangeHandler}
                               onFocusHandler={onFocusHandler}
                               onBlurHandler={onBlurHandler}
-                              onLabelClickHandler={onLabelClickHandler}
-                              className={props.className}
-                              rows={props.rows}
-                              cols={props.cols} />;
+                              onLabelClickHandler={onLabelClickHandler} />;
     }
 
-    return <InputField  name={props.name}
-                        label={props.label}
-                        type={props.type}
+    return <InputField  {...props}
                         isActive={isActive}
                         fieldRef={fieldRef}
-                        onChangeHandler={onChangeHandler}
                         onFocusHandler={onFocusHandler}
                         onBlurHandler={onBlurHandler}
-                        onLabelClickHandler={onLabelClickHandler} 
-                        className={props.className} />;
+                        onLabelClickHandler={onLabelClickHandler} />;
 }
+
+const useInput = (initialValue: string = '') => {
+    const [value, setValue] = React.useState(initialValue);
+
+    return {
+      value,
+      resetState: () => setValue(initialValue),
+      onChangeHandler: (event: React.FormEvent<HTMLInputElement>) => {
+        setValue(event.currentTarget.value);
+      }
+    };
+};
+
+export { TextField, useInput };

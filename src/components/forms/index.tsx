@@ -1,5 +1,6 @@
-import { TextField } from "./text-field";
+import { TextField, useInput } from "./text-field";
 
 export {
-    TextField
+    TextField,
+    useInput
 }

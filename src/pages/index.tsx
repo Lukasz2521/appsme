@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Header, Banner, WhatWeDo, WhoWeAre, CompletedProjects, Contact } from '@components/layout';
 
 const IndexPage = () => (
-  <div className="container">
+  <div className="container mx-auto">
     <Header />
     <Banner />
     <WhatWeDo />
