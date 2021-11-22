@@ -1,7 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
+import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 import { SectionHeader, SectionContainer, Project } from "@components/layout";
+
+const StyledSectionContainer = styled(SectionContainer)`
+    margin-bottom: 110px;
+`;
 
 const CompletedProjectsContainer = styled.div`
     display: flex;
@@ -10,7 +16,6 @@ const CompletedProjectsContainer = styled.div`
     overflow: hidden;
     justify-content: space-around;
 `;
-
 
 const ProjectsButton = styled.button`
     background-color: #F8F9FB;
@@ -31,16 +36,35 @@ const ProjectsButton = styled.button`
     }
 `;
 
-export const CompletedProjects = () => (
-    <SectionContainer>
-        <SectionHeader  headerText="zrealizowane projekty"
-                        subheaderText="Zobacz nasze umiejętności na żywo">        
-        </SectionHeader>
-        <CompletedProjectsContainer>
-            <Project companyName="Microsoft"></Project>
-            <Project companyName="Google"></Project>
-            <Project companyName="Oracle"></Project>
-        </CompletedProjectsContainer>
-        <ProjectsButton>przewijaj dalej</ProjectsButton>
-    </SectionContainer>
-);
+export const CompletedProjects = () => {
+    const [currentSlideIndex, setSlideIndex] = React.useState(0);
+
+    return (
+        <StyledSectionContainer>
+            <SectionHeader  headerText="zrealizowane projekty"
+                            subheaderText="Zobacz nasze umiejętności na żywo">        
+            </SectionHeader>
+            <CompletedProjectsContainer>
+                <Carousel
+                    value={currentSlideIndex}
+                    onChange={(index: number) => setSlideIndex(index)}
+                    itemWidth={380}
+                    offset={50}
+                    plugins={[
+                        {
+                            resolve: slidesToShowPlugin,
+                            options: {
+                                numberOfSlides: 3
+                            }
+                        },
+                    ]}
+                >
+                    <Project companyName="Microsoft"></Project>
+                    <Project companyName="Google"></Project>
+                    <Project companyName="Oracle"></Project>
+                </Carousel>
+            </CompletedProjectsContainer>
+            <ProjectsButton onClick={() => setSlideIndex(currentSlideIndex + 1)}>przewijaj dalej</ProjectsButton>
+        </StyledSectionContainer>
+    );
+};

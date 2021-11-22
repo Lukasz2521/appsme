@@ -1,15 +1,26 @@
 import * as React from 'react';
 
-import { Header, Banner, WhatWeDo, WhoWeAre, CompletedProjects, Contact } from '@components/layout';
+import {
+  Header,
+  Banner,
+  WhatWeDo,
+  WhoWeAre,
+  CompletedProjects,
+  Contact,
+  Footer
+} from '@components/layout';
 
 const IndexPage = () => (
-  <div className="container mx-auto">
-    <Header />
-    <Banner />
-    <WhatWeDo />
-    <WhoWeAre />
-    <CompletedProjects />
-    <Contact />
+  <div>
+    <div className="container mx-auto">
+      <Header />
+      <Banner />
+      <WhatWeDo />
+      <WhoWeAre />
+      <CompletedProjects />
+      <Contact />
+    </div>
+    <Footer />
   </div>
 );
 

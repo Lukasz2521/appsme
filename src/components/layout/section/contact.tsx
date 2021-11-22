@@ -9,7 +9,6 @@ const Fieldset = styled.fieldset`
     width: calc(50% - 25px);
 `;
 
-
 export const Contact = () => {
     const { value: nameValue, onChangeHandler: onChangeNameHandler, resetState: resetNameState } = useInput();
     const { value: surname, onChangeHandler: onChangeSurnameHandler, resetState: resetSurnameState } = useInput();

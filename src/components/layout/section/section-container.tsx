@@ -5,4 +5,4 @@ const Container = styled.section`
     margin-top: 120px;
 `;
 
-export const SectionContainer = ({ children }) => <Container>{children}</Container>;
+export const SectionContainer = ({ children, className }) => <Container className={className}>{children}</Container>;

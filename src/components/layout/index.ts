@@ -8,6 +8,7 @@ import { SectionContainer } from './section/section-container';
 import { CompletedProjects } from "./section/completed-projects";
 import { Project } from "./section/project";
 import { Contact } from "./section/contact";
+import { Footer } from './footer/footer';
 
 export {
     Header,
@@ -20,4 +21,5 @@ export {
     CompletedProjects,
     Project,
     Contact,
+    Footer,
 };

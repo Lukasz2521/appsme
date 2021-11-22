@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 90px;
+    padding: 60px 0;
 `;
 
 const NavLink = styled(Link)`

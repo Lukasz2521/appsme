@@ -16,6 +16,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.4",
     "@fontsource/sen": "^4.5.0",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.10.1",
