@@ -34,6 +34,6 @@ export const StyledRightBracket = styled(RightBracket)`
     top: -25px;
     right: -50px;
     width: 44px;
-    height: 100%;
-    background-size: 44px 190px;
+    height: 209px;
+    background-size: 44px 209px;
 `;

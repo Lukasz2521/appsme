@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { SectionHeader, SectionContainer } from "@components/layout";
 import { Paragraph, Button } from "@components/inputs";
 import { TextField, useInput } from "@components/forms";
+import { SocialLinks } from "./social-links";
 
 const Fieldset = styled.fieldset`
     width: calc(50% - 25px);
@@ -37,6 +38,7 @@ export const Contact = () => {
                         wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez
                         nieznanego drukarza do wypełnienia tekstem próbnej książki.
                     </Paragraph>
+                    <SocialLinks className="mt-16" />
                 </div>
                 <div>
                     <form onSubmit={handleSubmit}>
