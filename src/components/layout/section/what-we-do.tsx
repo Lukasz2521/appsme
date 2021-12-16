@@ -5,29 +5,15 @@ import { Chip, Button, Paragraph } from "@components/inputs";
 import { SectionHeader, SectionContainer } from "@components/layout";
 
 const DescriptionHeader = styled.h4`
-    font-weight: bold;
-    font-size: 25px;
-    line-height: 35px;
     color: #2C2C2C;
-    margin-bottom: 40px;
-`;
-
-const ChipContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: self-start;
-
-    & span {
-        margin-bottom: 30px;
-    }
 `;
 
 export const WhatWeDo = () => (
     <SectionContainer>
         <SectionHeader headerText="co robimy" subheaderText="To, co potrafimy robić najlepiej"></SectionHeader>
-        <div className="grid grid-rows-1 grid-cols-3">
+        <div className="grid grid-rows-1 md:grid-cols-3 grid-cols-1">
             <div className="col-span-2 auto-rows-auto">
-                <DescriptionHeader>Co charakteryzuje naszą pracę?</DescriptionHeader>
+                <DescriptionHeader className="md:text-xl text-lg leading-7 font-bold mb-12">Co charakteryzuje naszą pracę?</DescriptionHeader>
                 <Paragraph className="mr-32 mb-12">
                     Działamy w metodyce agile, współpracujemy blisko z klientem, używamy najnowszych technologii, a poszczególne technologie dobieramy do problemu,
                     który będziemy rozwiązywać. Używamy najlepszych praktyk
@@ -39,13 +25,13 @@ export const WhatWeDo = () => (
                 <Button type="link">Dowiedz się więcej</Button>
             </div>
             <div>
-                <DescriptionHeader>Czym się zajmujemy?</DescriptionHeader>
-                <ChipContainer>
-                    <Chip>Kompletne aplikacje internetowe</Chip>
-                    <Chip>Tworzymy API dla zewnętrznych firm</Chip>
-                    <Chip>Integrujemy się z zewnętrznymi API</Chip>
-                    <Chip>Aplikacje typu PWA</Chip>
-                </ChipContainer>
+                <DescriptionHeader className="md:text-xl text-lg leading-7 font-bold mb-12">Czym się zajmujemy?</DescriptionHeader>
+                <div className="flex flex-col items-start">
+                    <Chip className="mb-5">Kompletne aplikacje internetowe</Chip>
+                    <Chip className="mb-5">Tworzymy API dla zewnętrznych firm</Chip>
+                    <Chip className="mb-5">Integrujemy się z zewnętrznymi API</Chip>
+                    <Chip className="mb-5">Aplikacje typu PWA</Chip>
+                </div>
             </div>
         </div>
     </SectionContainer>

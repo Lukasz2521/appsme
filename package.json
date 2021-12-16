@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "concurrently \"gatsby develop\" \"postcss tailwind.css -o tailwind.dist.css -w\" ",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "autoprefixer": "^10.3.4",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "gatsby-plugin-postcss": "^4.13.0",
     "husky": "^7.0.2",
     "postcss": "^8.3.6",

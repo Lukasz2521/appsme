@@ -1,4 +1,5 @@
 import { Header } from "./header/header";
+import { MobileHeader } from './header/mobile-header';
 import { LanguageDropdown } from "./header/language-dropdown";
 import { Banner } from './header/banner';
 import { SectionHeader } from './section/section-header';
@@ -9,9 +10,13 @@ import { CompletedProjects } from "./section/completed-projects";
 import { Project } from "./section/project";
 import { Contact } from "./section/contact";
 import { Footer } from './footer/footer';
+import { Theme } from "./section/theme";
+import { Navigation } from "./header/navigation";
 
 export {
     Header,
+    Navigation,
+    MobileHeader,
     LanguageDropdown,
     Banner,
     SectionHeader,
@@ -22,4 +27,5 @@ export {
     Project,
     Contact,
     Footer,
+    Theme,
 };

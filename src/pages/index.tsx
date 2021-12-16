@@ -1,27 +1,22 @@
 import * as React from 'react';
 
 import {
-  Header,
+  Theme,
   Banner,
   WhatWeDo,
   WhoWeAre,
   CompletedProjects,
   Contact,
-  Footer
 } from '@components/layout';
 
 const IndexPage = () => (
-  <div>
-    <div className="container mx-auto">
-      <Header />
+  <Theme>
       <Banner />
       <WhatWeDo />
       <WhoWeAre />
       <CompletedProjects />
       <Contact />
-    </div>
-    <Footer />
-  </div>
+  </Theme>
 );
 
 export default IndexPage;

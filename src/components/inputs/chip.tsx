@@ -11,4 +11,4 @@ const StyledChip = styled.span`
     padding: 6px 12px;
 `;
 
-export const Chip = props => <StyledChip>{props.children}</StyledChip>;
+export const Chip = props => <StyledChip className={props.className}>{props.children}</StyledChip>;

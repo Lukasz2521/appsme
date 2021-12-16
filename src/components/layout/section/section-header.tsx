@@ -7,14 +7,8 @@ interface HeaderSectionProps {
     className?: string;
 }
 
-const HeaderContainer = styled.div`
-    margin-bottom: 80px;
-`;
-
 const Header = styled.h2`
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
+    font-weight: bold; 
     letter-spacing: 0.2em;
     color: #094AEB;
     text-transform: uppercase;
@@ -22,15 +16,16 @@ const Header = styled.h2`
 
 const SubHeader = styled.h3`
     font-weight: bold;
-    font-size: 40px;
-    line-height: 60px;
     color: #2C2C2C;
 `;
 
-export const SectionHeader = (props: HeaderSectionProps) =>
-    (
-        <HeaderContainer className={props.className}>
-            <Header>{ props.headerText }</Header>
-            <SubHeader>{ props.subheaderText }</SubHeader>
-        </HeaderContainer>
-    );
+export const SectionHeader = (props: HeaderSectionProps) => (
+    <div className={`mb-20 ${props.className}`}>
+        <Header className="md:text-lg text-sm md:leading-8 leading-6">
+            { props.headerText }
+        </Header>
+        <SubHeader className="md:text-4xl text-xl md:leading-10 leading-6">
+            { props.subheaderText }
+        </SubHeader>
+    </div>
+);
