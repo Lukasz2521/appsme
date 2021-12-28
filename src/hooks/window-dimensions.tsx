@@ -5,8 +5,10 @@ interface WindowDimensions {
     width: number;
 }
 
+const isBrowser = typeof window !== "undefined"
+
 function getWindowDimensions(): WindowDimensions {
-    const { innerHeight: height, innerWidth: width } = window;
+    const { innerHeight: height, innerWidth: width } = isBrowser ? window : null;
 
     return {
         height,
@@ -22,9 +24,15 @@ function useWindowDimensions(): WindowDimensions {
             setWindowDimensions(getWindowDimensions());
         }
 
-        window.addEventListener('resize', handleResize);
+        if(isBrowser) {
+            window.addEventListener('resize', handleResize);
+        }
     
-        return () => window.removeEventListener('resize', handleResize);
+        return () => {
+            if(isBrowser) {
+                window.removeEventListener('resize', handleResize);
+            }
+        }
     });
 
     return windowDimensions;
