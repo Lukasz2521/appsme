@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { MobileHeader, Header, Footer, Navigation } from '@components/layout';
-import { useWindowResolutionType, ResolutionType, useWindowDimensions } from "@utils";
+import { useWindowResolutionType, ResolutionType, useWindowDimensions } from "@hooks";
 
 const MobileMenuContainer = styled.div`
     background: #fff;
@@ -25,9 +25,7 @@ const Theme = ({ children }) => {
     }
     
     function handleResizeSideEffect(): void {
-        const isMobile: boolean = resolutionType === ResolutionType.MOBILE;
-        setIsMobile(isMobile);
-        console.log(isMobile);
+        setIsMobile(resolutionType === ResolutionType.MOBILE);
     }
     
     React.useEffect(() => {
@@ -46,7 +44,7 @@ const Theme = ({ children }) => {
                     <Navigation mobile />
                 </MobileMenuContainer>
             }
-            <Footer />
+            <Footer isDesktop={!isMobile}/>
         </div>
     );
 };

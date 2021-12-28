@@ -14,7 +14,7 @@ export const WhatWeDo = () => (
         <div className="grid grid-rows-1 md:grid-cols-3 grid-cols-1">
             <div className="col-span-2 auto-rows-auto">
                 <DescriptionHeader className="md:text-xl text-lg leading-7 font-bold mb-12">Co charakteryzuje naszą pracę?</DescriptionHeader>
-                <Paragraph className="mr-32 mb-12">
+                <Paragraph className="md:mr-32 mb-12">
                     Działamy w metodyce agile, współpracujemy blisko z klientem, używamy najnowszych technologii, a poszczególne technologie dobieramy do problemu,
                     który będziemy rozwiązywać. Używamy najlepszych praktyk
                     programistycznych, a nasz kod jest przetestowany jednostkowo, e2e oraz

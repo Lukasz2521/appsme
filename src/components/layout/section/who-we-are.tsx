@@ -41,14 +41,14 @@ const IconChipText = styled.span`
 export const WhoWeAre = () => (
     <SectionContainer>
         <SectionHeader headerText="kim jesteśmy" subheaderText="Poznaj nas lepiej"></SectionHeader>
-        <div className="grid grid-rows-1 grid-cols-3">
+        <div className="grid md:grid-rows-1 md:grid-cols-3">
             <div>
-            <StaticImage src="../../../assets/images/who-we-are.png"
+                <StaticImage src="../../../assets/images/who-we-are.png"
                              alt="phones"
                              width={360}
                              height={305} />
             </div>
-            <div className="col-span-2 auto-rows-auto ml-20">
+            <div className="col-span-2 auto-rows-auto mt-12 md:ml-20 md:mt-0">
                 <DescriptionHeader>Jesteśmy <Highlight>appsme</Highlight>, czyli...</DescriptionHeader>
                 <Paragraph>
                     Jesteśmy grupą zaufanych osób oraz przyjaciół, która z pasji do

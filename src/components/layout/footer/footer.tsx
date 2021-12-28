@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
-import { Paragraph } from "@components/inputs";
 import Phone from '@assets/images/phone.svg';
 import Envelope from '@assets/images/envelope.svg';
+
+import { Paragraph } from "@components/inputs";
+
 import { StyledLeftBracket } from "./right-bracket-background";
 import { StyledRightBracket } from "./left-bracket-background";
 
@@ -50,6 +52,10 @@ const FooterContainer = styled.footer`
     background: #F8F8FB;
     padding-top: 55px;
     margin-top: 120px;
+
+    @media(max-width: 768px) {
+        margin-top: 60px;
+    }
 `;
 
 const Logo = ({ className }) => {
@@ -114,11 +120,11 @@ const LinksList = (props: LinksListProps) => (
     </div>
 );
 
-export const Footer = () => (
+export const Footer = (props) => (
     <FooterContainer>
         <div className="container mx-auto">
-            <div className="grid grid-rows-1 grid-cols-5 mb-8">
-                <div className="col-span-2 pr-24">
+            <div className="md:grid md:grid-rows-1 md:grid-cols-5 mb-8">
+                <div className="md:col-span-2 md:pr-24">
                     <Logo className="mb-10"/>
                     <div>
                         <FooterSectionTitle>Software Solutions</FooterSectionTitle>
@@ -129,12 +135,12 @@ export const Footer = () => (
                         </StyledParagraph>
                     </div>
                 </div>
-                <div className="col-span-3 grid grid-rows-1 grid-cols-3">
-                    <LinksList {...MOCK.menu} />
-                    <LinksList {...MOCK.links} />
+                <div className="md:col-span-3 md:grid md:grid-rows-1 md:grid-cols-3">
+                    {props.isDesktop && <LinksList {...MOCK.menu} />}
+                    {props.isDesktop && <LinksList {...MOCK.links} />}
                     <CompanyInfoContainer className="relative text-sm">
-                        <StyledLeftBracket />
-                        <StyledRightBracket />
+                        {props.isDesktop && <StyledLeftBracket />}
+                        {props.isDesktop && <StyledRightBracket />}
                         <FooterSectionTitle>Appsme Software Solutions</FooterSectionTitle>
                         <address className="block mb-6">
                             <span className="block">ul. Symboliczna 3/31</span>

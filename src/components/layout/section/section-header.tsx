@@ -20,7 +20,7 @@ const SubHeader = styled.h3`
 `;
 
 export const SectionHeader = (props: HeaderSectionProps) => (
-    <div className={`mb-20 ${props.className}`}>
+    <div className={`mb-12 md:mb-20 ${props.className}`}>
         <Header className="md:text-lg text-sm md:leading-8 leading-6">
             { props.headerText }
         </Header>

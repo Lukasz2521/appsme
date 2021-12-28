@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { ResolutionType, useWindowResolutionType } from '@hooks';
+
 import {
   Theme,
   Banner,
@@ -9,14 +11,18 @@ import {
   Contact,
 } from '@components/layout';
 
-const IndexPage = () => (
-  <Theme>
-      <Banner />
-      <WhatWeDo />
-      <WhoWeAre />
-      <CompletedProjects />
-      <Contact />
-  </Theme>
-);
+const IndexPage = () => {
+  const resolutionType: ResolutionType = useWindowResolutionType();
+
+  return (
+    <Theme>
+        <Banner resolutionType={resolutionType} />
+        <WhatWeDo />
+        <WhoWeAre />
+        <CompletedProjects />
+        <Contact />
+    </Theme>
+  );
+};
 
 export default IndexPage;

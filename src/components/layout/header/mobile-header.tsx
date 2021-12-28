@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 15px;
+    padding: 20px 0;
 `;
 
 const Hamburger = styled.label`

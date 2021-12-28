@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useWindowDimensions } from "@utils";
+import { useWindowDimensions } from "@hooks";
 
 enum ResolutionType {
     DESKTOP,

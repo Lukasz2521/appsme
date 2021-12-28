@@ -8,6 +8,10 @@ import { SocialLinks } from "./social-links";
 
 const Fieldset = styled.fieldset`
     width: calc(50% - 25px);
+
+    @media(max-width: 768px) {
+        width: auto;
+    }
 `;
 
 export const Contact = () => {
@@ -28,7 +32,7 @@ export const Contact = () => {
 
     return (
         <SectionContainer>
-            <div className="grid grid-rows-1 grid-cols-2">
+            <div className="grid md:grid-rows-1 md:grid-cols-2">
                 <div className="mr-16">
                     <SectionHeader headerText="kontakt"
                                    subheaderText="Napisz do nas, porozmawiajmy o projekcie">
@@ -38,32 +42,32 @@ export const Contact = () => {
                         wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez
                         nieznanego drukarza do wypełnienia tekstem próbnej książki.
                     </Paragraph>
-                    <SocialLinks className="mt-16" />
+                    <SocialLinks className="mt-6 mb-6 md:mt-16" />
                 </div>
                 <div>
                     <form onSubmit={handleSubmit}>
-                        <div className="flex justify-between mb-8">
-                            <Fieldset>
+                        <div className="md:flex md:justify-between mb-8">
+                            <Fieldset className="mb-8">
                                 <TextField type="text" 
                                            label="Imię"
                                            value={nameValue}
                                            onChangeHandler={onChangeNameHandler} />
                             </Fieldset>
-                            <Fieldset>
+                            <Fieldset className="mb-8">
                                 <TextField type="text"
                                            label="Nazwisko"
                                            value={surname} 
                                            onChangeHandler={onChangeSurnameHandler} />
                             </Fieldset>
                         </div>
-                        <div className="flex justify-between mb-8">
-                            <Fieldset>
+                        <div className="md:flex md:justify-between mb-8">
+                            <Fieldset className="mb-8">
                                 <TextField type="text"
                                            label="E-mail"
                                            value={email}
                                            onChangeHandler={onChangeEmailHandler} />
                             </Fieldset>
-                            <Fieldset>
+                            <Fieldset className="mb-8">
                                 <TextField type="text"
                                            label="Numer telefonu"
                                            value={phone}
