@@ -8,12 +8,16 @@ interface WindowDimensions {
 const isBrowser = typeof window !== "undefined"
 
 function getWindowDimensions(): WindowDimensions {
-    const { innerHeight: height, innerWidth: width } = isBrowser ? window : null;
+    if(isBrowser) {
+        const { innerHeight: height, innerWidth: width } = window;
+    
+        return {
+            height,
+            width
+        };
+    }
 
-    return {
-        height,
-        width
-    };
+    return { height: 0, width: 0 };
 }
 
 function useWindowDimensions(): WindowDimensions {
