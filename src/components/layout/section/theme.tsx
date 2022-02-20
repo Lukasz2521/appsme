@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { MobileHeader, Header, Footer, Navigation } from '@components/layout';
@@ -15,8 +15,8 @@ const MobileMenuContainer = styled.div`
 `;
 
 const Theme = ({ children }) => {
-    const [isMobile, setIsMobile] = React.useState(false);
-    const [isOpen, setOpenMobileMenu] = React.useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [isOpen, setOpenMobileMenu] = useState(false);
     const resolutionType: ResolutionType = useWindowResolutionType();
     const windowWidth: number = useWindowDimensions().width;
     
@@ -28,7 +28,7 @@ const Theme = ({ children }) => {
         setIsMobile(resolutionType === ResolutionType.MOBILE);
     }
     
-    React.useEffect(() => {
+    useEffect(() => {
         handleResizeSideEffect();
     });
 

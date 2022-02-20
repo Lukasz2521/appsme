@@ -47,8 +47,8 @@ const Language = styled.span`
 `;
 
 export const LanguageDropdown = (props: LanguageDropdownProps) => {
-    const [languages, setLanguages] = useState(props.languages);
-    const [visibility, setVisibility] = useState(false);
+    const [languages, setLanguages] = useState<string[]>(props.languages);
+    const [visibility, setVisibility] = useState<boolean>(false);
 
     const onLanguageClickHandler = (index: number) => {
         const choosedLang: string[] = languages.splice(index, index + 1);
@@ -60,7 +60,7 @@ export const LanguageDropdown = (props: LanguageDropdownProps) => {
         if(index > 0) {
             return (
                 <LanguageItem onClick={() => onLanguageClickHandler(index)} 
-                              key={ Math.random() }>
+                              key={index}>
                     <Language>{ lang }</Language>
                 </LanguageItem>
             );

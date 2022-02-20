@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState , useRef, MutableRefObject, FormEvent } from "react";
 import styled, { css } from "styled-components";
 
 const InputContainer = styled.div`
@@ -120,8 +120,8 @@ const TextareaField = (props: TextareaProps) => {
 };
 
 const TextField = (props: TextFieldProps) => {
-    const [isActive, setActive] = React.useState(false);
-    const fieldRef: React.MutableRefObject<HTMLInputElement> = React.useRef<HTMLInputElement>(null);
+    const [isActive, setActive] = useState<boolean>(false);
+    const fieldRef: MutableRefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
     const onFocusHandler = () => setActive(true);
 
@@ -157,12 +157,12 @@ const TextField = (props: TextFieldProps) => {
 }
 
 const useInput = (initialValue: string = '') => {
-    const [value, setValue] = React.useState(initialValue);
+    const [value, setValue] = useState<string>(initialValue);
 
     return {
       value,
       resetState: () => setValue(initialValue),
-      onChangeHandler: (event: React.FormEvent<HTMLInputElement>) => {
+      onChangeHandler: (event: FormEvent<HTMLInputElement>) => {
         setValue(event.currentTarget.value);
       }
     };

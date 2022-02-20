@@ -56,33 +56,33 @@ const DesktopLink = css`
     }
 `;
 
+const MobileNavLink = styled(NavLink)`
+    ${MobileNavLinkStyles}
+`;
+
+const DesktopNavLink = styled(NavLink)`
+    ${DesktopLink}
+`;
+
 interface NavigationProps {
     mobile: boolean,
 }
 
 const Navigation = (props: NavigationProps) => {
     if(props.mobile) {
-        const MobileNavLink = styled(NavLink)`
-            ${MobileNavLinkStyles}
-        `;
-
         return (
             <NavContainer>
                 <MobileNavLink to="/">Co robimy</MobileNavLink>
-                <MobileNavLink to="/">Kim jesteśmy</MobileNavLink>
+                <MobileNavLink to="/who-we-are">Kim jesteśmy</MobileNavLink>
                 <MobileNavLink to="/">Zrealizowane projekty</MobileNavLink>
                 <MobileNavLink to="/">Kontakt</MobileNavLink>
             </NavContainer>
         );
     } else {
-        const DesktopNavLink = styled(NavLink)`
-            ${DesktopLink}
-        `;
-
         return (
             <nav>
                 <DesktopNavLink to="/">Co robimy</DesktopNavLink>
-                <DesktopNavLink to="/">Kim jesteśmy</DesktopNavLink>
+                <DesktopNavLink to="/who-we-are">Kim jesteśmy</DesktopNavLink>
                 <DesktopNavLink to="/">Zrealizowane projekty</DesktopNavLink>
                 <DesktopNavLink to="/">Kontakt</DesktopNavLink>
             </nav>

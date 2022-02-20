@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { PropsWithChildren } from "react";
 import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 
@@ -59,36 +59,39 @@ const ButtonText = styled.span`
     margin-right: 15px;
 `;
 
-const PrimaryRightArrow = css`
-    path {
-        stroke: #fff;
-    }
-`;
-
-const OutlinedRightArrow = css`
-    path {
-        stroke: #49494E;
-    }
-`;
-
 const RightArrowLongStyled = styled(RightArrowLong)`
     display: inline-flex;
     align-items: center;
     margin-left: 15px;
 `;
 
-export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
-    const ButtonWithIcon = styled(BaseButton)`
-        ${props.type === ButtonType.PRIMARY ? PrimaryButtonStyles : OutlinedButtonStyles}
-        align-items: center;
-        font-size: 15px;
-        line-height: 19px;
-    `;
+const PrimaryButtonWithIcon = styled(BaseButton)`
+    ${PrimaryButtonStyles}
+    align-items: center;
+    font-size: 15px;
+    line-height: 19px;
+`;
 
-    const RightArrowStyled = styled(RightArrow)`
-        ${props.type === ButtonType.PRIMARY ? PrimaryRightArrow : OutlinedRightArrow };
-    `;
+const OutlinedButtonWithIcon = styled(BaseButton)`
+    ${OutlinedButtonStyles}
+    align-items: center;
+    font-size: 15px;
+    line-height: 19px;
+`;
 
+const OutlinedRightArrow = styled(RightArrow)`
+    path {
+        stroke: #49494E;
+    }
+`;
+
+const PrimaryRightArrow = styled(RightArrow)`
+    path {
+        stroke: #fff;
+    }
+`;
+
+export const Button = (props: PropsWithChildren<ButtonProps>) => {
     if(props.type === ButtonType.LINK) {
         return (
             <ButtonLink className={props.className}>
@@ -96,12 +99,19 @@ export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
                 <RightArrowLongStyled className={props.className} />
             </ButtonLink>
         );
-    } else {
+    } else if(props.type === ButtonType.PRIMARY) {
         return (
-            <ButtonWithIcon className={props.className}>
+            <PrimaryButtonWithIcon className={props.className}>
                 <ButtonText>{props.children}</ButtonText>
-                <RightArrowStyled />
-            </ButtonWithIcon>
+                <PrimaryRightArrow />
+            </PrimaryButtonWithIcon>
+        );
+    } else if(props.type === ButtonType.OUTLINED) {
+        return (
+            <OutlinedButtonWithIcon className={props.className}>
+                <ButtonText>{props.children}</ButtonText>
+                <OutlinedRightArrow />
+            </OutlinedButtonWithIcon>
         );
     }
 }

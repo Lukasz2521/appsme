@@ -38,6 +38,7 @@ const ProjectsButton = styled.button`
 
 export const CompletedProjects = () => {
     const [currentSlideIndex, setSlideIndex] = React.useState(0);
+    const ProjectButtonClickHandler = () => setSlideIndex(currentSlideIndex + 1);
 
     return (
         <StyledSectionContainer>
@@ -64,7 +65,7 @@ export const CompletedProjects = () => {
                     <Project companyName="Oracle"></Project>
                 </Carousel>
             </CompletedProjectsContainer>
-            <ProjectsButton onClick={() => setSlideIndex(currentSlideIndex + 1)}>przewijaj dalej</ProjectsButton>
+            <ProjectsButton onClick={ProjectButtonClickHandler}>przewijaj dalej</ProjectsButton>
         </StyledSectionContainer>
     );
 };

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { StaticImage } from 'gatsby-plugin-image'
+import React from "react";
+import { StaticImage } from 'gatsby-plugin-image';
 import styled from "styled-components";
 
 const StyledHeader = styled.header`

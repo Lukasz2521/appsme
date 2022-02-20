@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { FormEvent } from "react";
 import styled from "styled-components";
 
 import { SectionHeader, SectionContainer } from "@components/layout";
@@ -21,7 +21,7 @@ export const Contact = () => {
     const { value: phone, onChangeHandler: onChangePhoneHandler, resetState: resetPhoneState } = useInput();
     const { value: body, onChangeHandler: onChangeBodyHandler, resetState: resetBodyState } = useInput();
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         resetNameState();
         resetSurnameState();

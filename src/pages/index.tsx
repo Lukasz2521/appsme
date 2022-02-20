@@ -1,6 +1,4 @@
-import * as React from 'react';
-
-import { ResolutionType, useWindowResolutionType } from '@hooks';
+import React from 'react';
 
 import {
   Theme,
@@ -10,6 +8,7 @@ import {
   CompletedProjects,
   Contact,
 } from '@components/layout';
+import { ResolutionType, useWindowResolutionType } from '@hooks';
 
 const IndexPage = () => {
   const resolutionType: ResolutionType = useWindowResolutionType();
