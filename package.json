@@ -19,6 +19,7 @@
     "@brainhubeu/react-carousel": "^2.0.4",
     "@fontsource/sen": "^4.5.0",
     "babel-plugin-styled-components": "^1.13.2",
+    "formik": "^2.2.9",
     "gatsby": "^3.10.1",
     "gatsby-background-image": "^1.5.3",
     "gatsby-plugin-image": "^1.14.0",
@@ -36,7 +37,8 @@
     "react-helmet": "^6.1.0",
     "sass": "^1.42.1",
     "sharp": "^0.28.3",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.4",

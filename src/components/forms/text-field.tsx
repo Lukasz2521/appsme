@@ -1,5 +1,6 @@
-import React, { useState , useRef, MutableRefObject, FormEvent } from "react";
+import React, { useState , useRef, MutableRefObject } from "react";
 import styled, { css } from "styled-components";
+import { useField } from "formik";
 
 const InputContainer = styled.div`
     position: relative;
@@ -14,7 +15,7 @@ const BaseStyle = css`
 const BaseStyleInput = css`
     ${BaseStyle}
     padding: 15px 25px;
-    border: 1.5px solid #E0E3F3;
+    border: 1.5px solid ${props => (props.hasError ? '#BF212E' : '#B8C2D9')};
     border-radius: 5px;
     color: #B8C2D9;
     overflow: hidden;
@@ -26,7 +27,7 @@ const BaseStyleInput = css`
 const Label = styled.label`
     ${BaseStyle}
     background-color: #fff;
-    color: #B8C2D9;
+    color: ${props => (props.hasError ? '#BF212E' : '#B8C2D9')};
     font-weight: normal;
     top: 15px;
     left: 15px;
@@ -49,14 +50,22 @@ const Textarea = styled.textarea`
     ${BaseStyleInput}
 `;
 
+const ErrorMessage = styled.span`
+    font-size: 13px;
+    color: #BF212E;
+    margin-top: 3px;
+    margin-left: 3px;
+`;
+
 interface TextFieldProps {
     value: string;
-    onChangeHandler: Function,
+    onChange: Function,
     label: string;
     name: string;
     type: string;
     multiline: boolean;
     className: string;
+    hasError: boolean;
     rows?: number;
     cols?: number;
 }
@@ -66,11 +75,12 @@ interface BaseTextFieldProps {
     label: string;
     name: string;
     isActive: boolean;
+    hasError: boolean;
     fieldRef: React.MutableRefObject<HTMLInputElement>;
-    onChangeHandler: Function,
-    onFocusHandler: Function,
-    onBlurHandler: Function,
-    onLabelClickHandler: Function,
+    onChange: Function,
+    onFocus: Function,
+    onBlur: Function,
+    onLabelClick: Function,
     className: string;
 }
 
@@ -85,16 +95,10 @@ interface TextareaProps extends BaseTextFieldProps {
 
 const InputField = (props: InputProps) => (
     <InputContainer className={props.className}>
-        <Input  value={props.value}
-                name={props.name}
-                type={props.type}
-                ref={props.fieldRef}
-                onChange={props.onChangeHandler}
-                onFocus={props.onFocusHandler}
-                onBlur={props.onBlurHandler}
-        />
+        <Input  {...props} ref={props.fieldRef} />
         <Label  active={props.isActive}
-                onClick={props.onLabelClickHandler}>
+                hasError={props.hasError}
+                onClick={props.onLabelClick}>
             {props.label}
         </Label>
     </InputContainer>
@@ -103,18 +107,12 @@ const InputField = (props: InputProps) => (
 const TextareaField = (props: TextareaProps) => {
     return (
         <InputContainer className={props.className}>
-            <Textarea value={props.value}
-                      name={props.name} 
-                      rows={props.rows}
-                      cols={props.cols}
-                      ref={props.fieldRef}
-                      onChange={props.onChangeHandler}
-                      onFocus={props.onFocusHandler}
-                      onBlur={props.onBlurHandler}>
+            <Textarea {...props} ref={props.fieldRef}>
                 {props.value}
             </Textarea>
-            <Label active={ props.isActive }
-                   onClick={props.onLabelClickHandler}>{props.label}</Label>
+            <Label active={props.isActive}
+                   hasError={props.hasError}
+                   onClick={props.onLabelClick}>{props.label}</Label>
         </InputContainer>
     );
 };
@@ -139,33 +137,32 @@ const TextField = (props: TextFieldProps) => {
         }
     };
 
-    if(props.multiline) {
+    if (props.multiline) {
         return <TextareaField {...props}
                               isActive={isActive}
                               fieldRef={fieldRef}
-                              onFocusHandler={onFocusHandler}
-                              onBlurHandler={onBlurHandler}
-                              onLabelClickHandler={onLabelClickHandler} />;
+                              onFocus={onFocusHandler}
+                              onBlur={onBlurHandler}
+                              onLabelClick={onLabelClickHandler} />;
     }
 
     return <InputField  {...props}
                         isActive={isActive}
                         fieldRef={fieldRef}
-                        onFocusHandler={onFocusHandler}
-                        onBlurHandler={onBlurHandler}
-                        onLabelClickHandler={onLabelClickHandler} />;
+                        onFocus={onFocusHandler}
+                        onBlur={onBlurHandler}
+                        onLabelClick={onLabelClickHandler} />;
 }
 
-const useInput = (initialValue: string = '') => {
-    const [value, setValue] = useState<string>(initialValue);
+const Field = (props) => {
+    const [field, meta] = useField(props);
 
-    return {
-      value,
-      resetState: () => setValue(initialValue),
-      onChangeHandler: (event: FormEvent<HTMLInputElement>) => {
-        setValue(event.currentTarget.value);
-      }
-    };
+    return (
+        <>
+            <TextField {...props} {...field} hasError={meta.error && meta.touched} />
+            { meta.error && meta.touched && <ErrorMessage>{meta.error}</ErrorMessage>}
+        </>
+    );
 };
 
-export { TextField, useInput };
+export { Field };

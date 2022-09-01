@@ -75,7 +75,7 @@ export const WhoWeAre = () => (
                         <IconChipText>Jakość</IconChipText>
                     </IconChip>
                 </IconChipContainer>
-                <Button type="link">Dowiedz się o nas więcej</Button>
+                <Button variant="link">Dowiedz się o nas więcej</Button>
             </div>
         </div>
     </SectionContainer>

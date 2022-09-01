@@ -13,7 +13,7 @@ enum ButtonType {
 
 interface ButtonProps {
     value: string;
-    type: ButtonType;
+    variant: ButtonType;
     className: string;
 }
 
@@ -92,21 +92,21 @@ const PrimaryRightArrow = styled(RightArrow)`
 `;
 
 export const Button = (props: PropsWithChildren<ButtonProps>) => {
-    if(props.type === ButtonType.LINK) {
+    if(props.variant === ButtonType.LINK) {
         return (
             <ButtonLink className={props.className}>
                 {props.children}
                 <RightArrowLongStyled className={props.className} />
             </ButtonLink>
         );
-    } else if(props.type === ButtonType.PRIMARY) {
+    } else if(props.variant === ButtonType.PRIMARY) {
         return (
             <PrimaryButtonWithIcon className={props.className}>
                 <ButtonText>{props.children}</ButtonText>
                 <PrimaryRightArrow />
             </PrimaryButtonWithIcon>
         );
-    } else if(props.type === ButtonType.OUTLINED) {
+    } else if(props.variant === ButtonType.OUTLINED) {
         return (
             <OutlinedButtonWithIcon className={props.className}>
                 <ButtonText>{props.children}</ButtonText>

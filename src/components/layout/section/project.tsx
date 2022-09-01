@@ -83,7 +83,7 @@ export const Project = (props: ProjectProps) => (
     <StyledProject>
         <ProjectInfoBox>
             <CompanyName>{props.companyName}</CompanyName>
-            <Button type="link">Podgląd</Button>
+            <Button variant="link">Podgląd</Button>
         </ProjectInfoBox>
     </StyledProject>
 );

@@ -68,8 +68,8 @@ export const Banner = (props) => (
                 oraz wspomagamy start-up’y w wytwarzaniu oprogramowania.
             </Paragraph>
             <ButtonContainer className="flex mt-12">
-                <Button type="primary" className="action-button md:mr-5">Dowiedz się więcej</Button>
-                <Button type="outlined" className="action-button">Porozmawiajmy o projekcie</Button>
+                <Button variant="primary" className="action-button md:mr-5">Dowiedz się więcej</Button>
+                <Button variant="outlined" className="action-button">Porozmawiajmy o projekcie</Button>
             </ButtonContainer>
         </TextContainer>
         <BackgroundContainer>

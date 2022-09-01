@@ -22,7 +22,7 @@ export const WhatWeDo = () => (
                     lub na dedykowanych serwerach aplikacyjnych w zależności od budżetu lub
                     potrzeb klienta.
                 </Paragraph>
-                <Button type="link">Dowiedz się więcej</Button>
+                <Button variant="link">Dowiedz się więcej</Button>
             </div>
             <div>
                 <DescriptionHeader className="md:text-xl text-lg leading-7 font-bold mb-12">Czym się zajmujemy?</DescriptionHeader>
