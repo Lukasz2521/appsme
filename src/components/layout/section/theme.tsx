@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 import { MobileHeader, Header, Footer, Navigation } from '@components/layout';
 import { useWindowResolutionType, ResolutionType, useWindowDimensions } from "@hooks";
+import { COLORS } from "@utils/constants/colors.constants";
 
 const MobileMenuContainer = styled.div`
-    background: #fff;
+    background: ${props => props.theme.white};
     position: fixed;
     top: 0;
     left: 0;
@@ -33,7 +34,7 @@ const Theme = ({ children }) => {
     });
 
     return (
-        <div>
+        <ThemeProvider theme={COLORS}>
             <div className="container mx-auto">
                 { !isMobile && <Header />}
                 { isMobile && <MobileHeader toggleMenu={toggleMobileMenu} />}
@@ -45,7 +46,7 @@ const Theme = ({ children }) => {
                 </MobileMenuContainer>
             }
             <Footer isDesktop={!isMobile}/>
-        </div>
+        </ThemeProvider>
     );
 };
 

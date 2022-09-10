@@ -25,7 +25,7 @@ const ChoosedLanguageImg = styled(StaticImage)`
 const LanguageList = styled.ul`
     display: inline-flex;
     flex-direction: column;
-    background: #F8F8FB;
+    background: ${props => props.theme.gray[400]};
     border-radius: 5px;
     padding: 10px 10px 15px;
 `;
@@ -43,7 +43,7 @@ const Language = styled.span`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: blue;
+    background: ${props => props.theme.white};
 `;
 
 export const LanguageDropdown = (props: LanguageDropdownProps) => {

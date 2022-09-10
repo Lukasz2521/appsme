@@ -49,7 +49,7 @@ const MOCK = {
 };
 
 const FooterContainer = styled.footer`
-    background: #F8F8FB;
+    background: ${props => props.theme.gray[400]};
     padding-top: 55px;
     margin-top: 120px;
 
@@ -72,7 +72,7 @@ const FooterSectionTitle = styled.span`
     font-weight: bold;
     font-size: 17px;
     line-height: 20px;
-    color: #094AEB;
+    color: ${props => props.theme.primary[400]};
 `;
 
 const StyledLink = styled(Link)`
@@ -80,9 +80,9 @@ const StyledLink = styled(Link)`
 `;
 
 const CompanyFooterName = styled.div`
-    border-top: 1px solid #E0E3F3;
+    border-top: 1px solid ${props => props.theme.gray[200]};
     font-size: 14px;
-    color: #949498;
+    color: ${props => props.theme.gray[700]};
     text-align: center;
     padding: 35px 0;
 `;
@@ -159,9 +159,7 @@ export const Footer = (props) => (
                     </CompanyInfoContainer>
                 </div>
             </div>
-            <CompanyFooterName>
-                2021 Appsme
-            </CompanyFooterName>
+            <CompanyFooterName>2021 Appsme</CompanyFooterName>
         </div>
     </FooterContainer>
 );

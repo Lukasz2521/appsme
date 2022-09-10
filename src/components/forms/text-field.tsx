@@ -15,9 +15,9 @@ const BaseStyle = css`
 const BaseStyleInput = css`
     ${BaseStyle}
     padding: 15px 25px;
-    border: 1.5px solid ${props => (props.hasError ? '#BF212E' : '#B8C2D9')};
+    border: 1.5px solid ${props => (props.hasError ? props.theme.red[100] : props.theme.gray[100])};
     border-radius: 5px;
-    color: #B8C2D9;
+    color: ${props => props.theme.gray[100]};
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -26,8 +26,8 @@ const BaseStyleInput = css`
 
 const Label = styled.label`
     ${BaseStyle}
-    background-color: #fff;
-    color: ${props => (props.hasError ? '#BF212E' : '#B8C2D9')};
+    background-color: ${props => props.theme.white};
+    color: ${props => (props.hasError ? props.theme.red[100] : props.theme.gray[100])};
     font-weight: normal;
     top: 15px;
     left: 15px;
@@ -52,7 +52,7 @@ const Textarea = styled.textarea`
 
 const ErrorMessage = styled.span`
     font-size: 13px;
-    color: #BF212E;
+    color: ${props => props.theme.red[100]};
     margin-top: 3px;
     margin-left: 3px;
 `;

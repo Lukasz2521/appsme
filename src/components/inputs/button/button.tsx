@@ -21,7 +21,7 @@ const ButtonLink = styled(Link)`
     font-weight: bold;
     font-size: 15px;
     line-height: 19px;
-    color: #094AEB;
+    color: ${props => props.theme.primary[400]};
 
     &:hover {
         cursor: pointer;
@@ -39,9 +39,9 @@ const BaseButton = styled.button`
 `;
 
 const PrimaryButtonStyles = css`
-    border: 1px solid #094AEB;
-    background-color: #094AEB;
-    color: #fff;
+    border: 1px solid ${props => props.theme.primary[400]};
+    background-color: ${props => props.theme.primary[400]};
+    color: ${props => props.theme.white};
     transition: opacity 0.35s;
 
     &:hover {
@@ -50,9 +50,9 @@ const PrimaryButtonStyles = css`
 `;
 
 const OutlinedButtonStyles = css`
-    border: 2px solid #E5E5E5;
-    background-color: #fff;
-    color: #49494E;
+    border: 2px solid ${props => props.theme.gray[300]};
+    background-color: ${props => props.theme.white};
+    color: ${props => props.theme.gray[600]};
 `;
 
 const ButtonText = styled.span`
@@ -81,13 +81,13 @@ const OutlinedButtonWithIcon = styled(BaseButton)`
 
 const OutlinedRightArrow = styled(RightArrow)`
     path {
-        stroke: #49494E;
+        stroke: ${props => props.theme.gray[600]};
     }
 `;
 
 const PrimaryRightArrow = styled(RightArrow)`
     path {
-        stroke: #fff;
+        stroke: ${props => props.theme.white};
     }
 `;
 

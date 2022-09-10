@@ -16,7 +16,7 @@ const ProjectInfoBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #3064E4;
+    background: ${props => props.theme.primary[500]};
     opacity: 0.9;
     padding-left: 25px;
     border-radius: 5px;
@@ -31,13 +31,13 @@ const CompanyName = styled.span`
     font-weight: 800;
     font-size: 20px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: ${props => props.theme.white};
     margin-bottom: 15px;
 `;
 
 const ViewButton = styled(Button)`
-    color: #fff;
-    stroke: #fff;
+    color: ${props => props.theme.white};
+    stroke: ${props => props.theme.white};
 `;
 
 const BackgroundSection = ({ className, children }) => {
@@ -62,7 +62,7 @@ const BackgroundSection = ({ className, children }) => {
         Tag="div"
         className={className}
         fluid={imageData}
-        backgroundColor={`#F8F9FB`}
+        backgroundColor={`${props => props.theme.gray[400]}`}
       >
         {children}
       </BackgroundImage>

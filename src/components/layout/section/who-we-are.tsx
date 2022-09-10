@@ -12,7 +12,7 @@ const DescriptionHeader = styled.h4`
     font-weight: bold;
     font-size: 25px;
     line-height: 35px;
-    color: #2C2C2C;
+    color: ${props => props.theme.gray[500]};
     margin-bottom: 40px;
 `;
 
@@ -34,7 +34,7 @@ const IconChipText = styled.span`
     font-weight: bold;
     font-size: 16px;
     line-height: 19px;
-    color: #2C2C2C;
+    color: ${props => props.theme.gray[500]};
     margin-left: 15px;
 `;
 

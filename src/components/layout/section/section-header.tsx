@@ -10,13 +10,13 @@ interface HeaderSectionProps {
 const Header = styled.h2`
     font-weight: bold; 
     letter-spacing: 0.2em;
-    color: #094AEB;
+    color: ${props => props.theme.primary[400]};
     text-transform: uppercase;
 `;
 
 const SubHeader = styled.h3`
     font-weight: bold;
-    color: #2C2C2C;
+    color: ${props => props.theme.gray[500]};
 `;
 
 export const SectionHeader = (props: HeaderSectionProps) => (

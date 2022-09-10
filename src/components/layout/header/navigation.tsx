@@ -18,7 +18,7 @@ const NavLink = styled(Link)`
     font-weight: bold;
     font-size: 16px;
     line-height: 19px;
-    color: #49494E;
+    color: ${props => props.theme.gray[600]};
     position: relative;
 `;
 
@@ -43,7 +43,7 @@ const DesktopLink = css`
         left: 0;
         height: 3px;
         border-radius: 5px;
-        background: #094AEB;
+        background: ${props => props.theme.primary[400]};
         bottom: -30px;
         margin-top: 15px;
         transition: width .25s ease-in-out;

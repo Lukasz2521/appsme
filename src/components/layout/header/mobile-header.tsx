@@ -10,16 +10,16 @@ const StyledHeader = styled.header`
 `;
 
 const Hamburger = styled.label`
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     width: 52px;
-    cursor:pointer;
+    cursor: pointer;
     z-index: 1;
 `;
 
 const HamburgerItem = styled.span`
-    background: #000;
-    border-radius:10px;
+    background: ${props => props.theme.black};
+    border-radius: 10px;
     height: 5px;
     margin: 5px 0;
     transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
@@ -34,7 +34,7 @@ const HamburgerItem = styled.span`
 
     &:nth-of-type(3) {
         width: 75%;
-        background: #094AEB;
+        background: ${props => props.theme.primary[400]};
     }
 `;
 
@@ -42,19 +42,19 @@ const Input = styled.input`
     display: none;
 
     &:checked ~ ${HamburgerItem}:nth-of-type(1) {
-        transform-origin:bottom;
-        transform:rotatez(45deg) translate(7px, -2px)
+        transform-origin: bottom;
+        transform: rotatez(45deg) translate(7px, -2px)
     }
 
     &:checked ~ ${HamburgerItem}:nth-of-type(2) {
-        transform-origin:top;
-        transform:rotatez(-45deg)
+        transform-origin: top;
+        transform: rotatez(-45deg)
     }
 
     &:checked ~ ${HamburgerItem}:nth-of-type(3) {
-        background: #000;
-        transform-origin:bottom;
-        width:50%;
+        background: ${props => props.theme.black};
+        transform-origin: bottom;
+        width: 50%;
         transform: translate(25px, -8px) rotatez(45deg);
     }
 `;

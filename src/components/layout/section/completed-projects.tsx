@@ -11,19 +11,19 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const CompletedProjectsContainer = styled.div`
     display: flex;
-    background: #F8F9FB;
+    background: ${props => props.theme.gray[400]};
     padding: 20px 15px;
     overflow: hidden;
     justify-content: space-around;
 `;
 
 const ProjectsButton = styled.button`
-    background-color: #F8F9FB;
+    background-color: ${props => props.theme.gray[400]};
     display: block;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.2em;
-    color: #B8C2D9;
+    color: ${props => props.theme.gray[100]};
     text-align: center;
     padding: 15px;
     width: 100%;
@@ -32,7 +32,7 @@ const ProjectsButton = styled.button`
     margin-top: 5px;
 
     &:hover {
-        background-color: #eee;
+        opacity: .8;
     }
 `;
 

@@ -5,7 +5,7 @@ import { Chip, Button, Paragraph } from "@components/inputs";
 import { SectionHeader, SectionContainer } from "@components/layout";
 
 const DescriptionHeader = styled.h4`
-    color: #2C2C2C;
+    color: ${props => props.theme.gray[500]};
 `;
 
 export const WhatWeDo = () => (

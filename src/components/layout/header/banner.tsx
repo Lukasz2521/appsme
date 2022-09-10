@@ -10,7 +10,7 @@ const Headline = styled.h2`
     font-weight: 800;
     font-size: 42px;
     line-height: 52px;
-    color: #2C2C2C;
+    color: ${props => props.theme.gray[500]};
     margin-bottom: 35px;
 
     @media (max-width: 768px) {
@@ -20,7 +20,7 @@ const Headline = styled.h2`
 `;
 
 const HighlightedPhrase = styled.span`
-    color: #094AEB;
+    color: #${props => props.theme.primary[400]};
 `;
 
 const ButtonContainer = styled.div`
